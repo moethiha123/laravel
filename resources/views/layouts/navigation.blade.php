@@ -29,15 +29,19 @@
             </div>
 
             {{-- Navigation link --}}
-            <div class="flex items-center gap-5">
-                <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                    {{ __('login') }}
-                </x-nav-link>
+            @guest
 
-                <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                    {{ __('register') }}
-                </x-nav-link>
-            </div>
+
+                <div class="flex items-center gap-5">
+                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                        {{ __('login') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                        {{ __('register') }}
+                    </x-nav-link>
+                </div>
+            @endguest
             {{-- Navigation link --}}
             @auth
                 <div class="hidden sm:flex sm:items-center sm:ms-6">

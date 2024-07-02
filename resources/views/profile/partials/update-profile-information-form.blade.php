@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
@@ -37,18 +37,19 @@
             <x-input-error class="mt-2" :messages="$errors->get('phone')" />
         </div>
         <div>
+            <x-input-label for="photo" :value="__('photo')" />
+            <img src="{{ asset('storage/' . $user->photo) }}" width="150" alt="photo">
+            <input type="file" name="photo" id="">
+            <x-input-error class="mt-2" :messages="$errors->get('photo')" />
+        </div>
+        <div>
             <x-input-label for="age" :value="__('Age')" />
             <x-text-input id="age" name="age" type="text" class="mt-1 block w-full" :value="old('age', $user->age)"
                 required autofocus autocomplete="age" />
             <x-input-error class="mt-2" :messages="$errors->get('age')" />
         </div>
 
-        <div>
-            <x-input-label for="sex" :value="__('Sex')" />
-            <x-text-input id="sex" name="sex" type="text" class="mt-1 block w-full" :value="old('sex', $user->sex)"
-                required autofocus autocomplete="sex" />
-            <x-input-error class="mt-2" :messages="$errors->get('sex')" />
-        </div>
+
 
         <div>
             <x-input-label for="email" :value="__('Email')" />

@@ -61,14 +61,7 @@
 
         {{-- phone --}}
         {{-- sex --}}
-        <div class="mt-4">
-            <x-input-label for="sex" :value="__('Sex')" />
-            <x-text-input id="sex" class="block mt-1 w-full" type="sex" name="sex" :value="old('sex')"
-                required autocomplete="sex" />
 
-
-            <x-input-error :messages="$errors->get('sex')" class="mt-2" />
-        </div>
         {{-- sex --}}
         <!-- Confirm Password -->
         <div class="mt-4">
