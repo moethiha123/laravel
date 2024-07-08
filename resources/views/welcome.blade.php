@@ -2,8 +2,9 @@
     <div class="shadow-md bg-white">
 
         @foreach ($categories as $item)
-            <span
-                class="inline-block py-1 m-1 rounded-lg bg-red-100 hover:bg-red-500 hover:text-white p-2 border-2 text-sm">{{ $item->name }}</span>
+            <a href="{{ route('category.show', $item->id) }}"
+                class="inline-block py-1 m-1 rounded-lg bg-red-100 hover:bg-red-500 hover:text-white p-2 border-2 text-sm">{{ $item->name }}>
+            </a>
         @endforeach
 
     </div>
@@ -30,7 +31,7 @@
                             </div>
                             <h2>{{ $post->title }}</h2>
                             <p class="flex justify-between ">{{ $post->created_at->format('d-m-Y') }} <span><a
-                                        href=""
+                                        href="{{ route('category.show', $post->category->id) }}"
                                         class="font-bold text-red-600">{{ $post->category->name }}</a></span></p>
                         </div>
                     </div>

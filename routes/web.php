@@ -18,9 +18,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/posts', [PostController::class, 'create'])->name('posts.create');
 });
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('category.show');
 
 require __DIR__ . '/auth.php';
